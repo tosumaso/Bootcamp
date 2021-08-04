@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<div>商品の削除</div>
+	<form method="post" th:action="@{/items/delete/complete}">
+		<input type="number" name="id"/>
+		<input type="submit" value="削除する"/>
+	</form>
+</body>
+</html>

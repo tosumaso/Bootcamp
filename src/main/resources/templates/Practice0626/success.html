@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{template :: layout(~{::title},~{::body/content()})}">
+<head>
+<meta charset="UTF-8">
+<title>サクセス</title>
+</head>
+<body>
+	<h1>サクセス</h1>
+	<th:block th:text="${name}"></th:block>
+</body>
+</html>

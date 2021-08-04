@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>a</title>
+	</head>
+	<body>
+		<form method="post" action="/shop/lesson04_03/index">
+			ユーザー名<input type="text" name="name"/>
+			該当ユーザー数:<div th:text="${countNumber}"></div>
+			<input type="submit" value="検索"/>
+		</form>
+	</body>
+</html>

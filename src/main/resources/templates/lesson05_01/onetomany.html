@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{template :: layout(~{::title},~{::body/content()})}">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../css/findAll.css">
+<title>Insert title here</title>
+</head>
+<body>
+	<div th:each="user: ${users}">
+		<p th:text="${user.userId}"></p>
+		<p th:text="${user.username}"></p> 
+		<p th:each="comment: ${user.comments}">
+			<th:block th:text="${comment.text}"></th:block>
+		</p> 
+	</div>
+</body>
+</html>

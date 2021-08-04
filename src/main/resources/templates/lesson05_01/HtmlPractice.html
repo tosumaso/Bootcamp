@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{template :: layout(~{::title},~{::body/content()})}">
+<!--1:コントローラーから個別ファイルを渡し、テンプレートを参照するか確認 -->
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="../css/findAll.css">
+<title>create Practice</title>
+</head>
+<body>
+	<div class="parent1">
+		<form class="testform1" method="post" action="/shop/test1">
+			<!-- 商品名検索 -->
+			商品名：<input type="text" name="name" /><input type="submit"
+				value="登録する">
+		</form>
+		<div th:object="${test1}">
+			<p th:unless="*{#fields.hasErrors('name')}" th:text="*{name}"></p>
+			<!-- nameパラメータにエラーがあったら値を表示 -->
+			<span th:errors="*{name}"></span>
+		</div>
+
+		<form class="testform1" method="post" action="/shop/test1">
+			<!-- ダミー商品名検索 -->
+			商品名：<input type="text" name="name" /><input type="submit"
+				value="登録する">
+		</form>
+	</div>
+	<div class="parent2">
+		<form class="testform2" method="post" action="/shop/test2">
+			<!-- 価格検索 -->
+			価格:<input type="number" name="price" /><input type="submit"
+				value="登録する">
+		</form>
+		<div th:object="${test2}">
+			<!-- ダミー価格検索 -->
+			<p th:unless="*{#fields.hasErrors('price') || price ==0}"
+				th:text="*{price}"></p>
+			<!-- priceパラメータにエラーがあるか値が0なら値を表示 -->
+			<span th:errors="*{price}"></span>
+		</div>
+		<form class="testform2" method="post" action="/shop/test2">
+			価格:<input type="number" name="price" /><input type="submit"
+				value="登録する">
+		</form>
+	</div>
+
+	<form method="post" action="/shop/testReference">
+		<input type="text" name="name" /> <input type="number" name="price" />
+		<input type="number" name="categoryId" /> <input type="submit"
+			value="送信" />
+		<th:block th:object="${testReference3}">
+			<span th:errors="*{name}"></span>
+			<span th:errors="*{price}"></span>
+			<span th:errors="*{categoryId}"></span>
+		</th:block>
+	</form>
+
+	<div class="test_table">
+		<form>
+			<table>
+				<tr>
+					<th>名前</th>
+				</tr>
+				<tr>
+					<td><input type="text" name="name" /></td>
+					<td><input type="submit"value="送信" /></td>
+				</tr>
+				<tr>
+					<th>年齢</th>
+				</tr>
+				<tr>
+					<td><input type="number" name="age" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

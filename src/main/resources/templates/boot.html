@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Bootこむ</h1>
+
+	<form method="post" action="/shop/postBoot">
+		<p>学生番号</p>
+		<input type="number" name="studentId">
+		<p>誕生日</p>
+		<input type="date" name="birthday">
+		<p>パスワード</p>
+		<input type="password" name="password">
+		<input type="radio" name="yesno" value="yes" th:checked="${session.yesno==1}">Yes
+	</form>
+	
+	
+</body>
+</html>

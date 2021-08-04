@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{template :: layout(~{::title},~{::body/content()})}">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+</head>
+<body>
+	<form method="post" th:action="@{/login}">
+		<input type="text" name="username"/>
+		<input type="password" name="password" />
+		<input type="submit" value="送信"/>
+	</form>
+</body>
+</html>
+
+<!-- 目的：usersテーブルを作成後ログインし、ユーザーが登録したレコードの数を表示 -->

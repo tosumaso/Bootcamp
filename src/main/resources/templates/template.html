@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="layout(title,body)"> <!-- 2:個別ファイルに参照されるときの情報(title,bodyタグを他のファイルで置き換える) -->
+<head>
+<meta charset="UTF-8"/>	
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/findAll.css">
+<title th:replace="${title}"></title> <!-- 4:個別ファイルからtitleタグを置き換える -->
+</head>
+<body>
+<div class="wrapper">
+	<div th:replace="~{header :: layout_header}"></div> <!-- 5:共通ファイルの部品を呼び出す -->
+		<div th:replace="${body}"></div> <!-- 6:個別ファイルのbodyタグを置き換える -->
+	<div th:replace="~{footer :: layout_footer}"></div>
+</div>
+</body>
+</html>
